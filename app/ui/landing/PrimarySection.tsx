@@ -193,7 +193,7 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Navigation Arrows */}
-      <div className="absolute top-1/2 left-4 right-4 flex justify-between items-center pointer-events-none z-20">
+      <div className="absolute top-1/2 left-4 right-4 flex justify-between items-center pointer-events-none z-20 hidden md:flex">
         <motion.button
           onClick={goToPrevSlide}
           className="w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full hover:bg-white/20 hover:border-white/50 transition-all duration-300 pointer-events-auto"
