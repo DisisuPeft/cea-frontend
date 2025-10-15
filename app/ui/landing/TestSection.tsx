@@ -8,226 +8,8 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, Award, ArrowRight, BookOpen } from "lucide-react";
-
-// Modal Component (inline for single file requirement)
-const Modal = ({
-  show,
-  onClose,
-  children,
-}: {
-  show: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-}) => {
-  if (!show) return null;
-
-  return (
-    <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      <motion.div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        onClick={onClose}
-      />
-      <motion.div
-        className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-        initial={{ opacity: 0, scale: 0.8, y: 50 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.8, y: 50 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-      >
-        {children}
-      </motion.div>
-    </motion.div>
-  );
-};
-
-// Lead Form Component (inline for single file requirement)
-const LeadForm = ({ onClose }: { onClose: () => void }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    diplomado: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    onClose();
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  return (
-    <div>
-      <div className="bg-gradient-to-r from-[#a20519] to-[#121829] text-white p-6 rounded-t-2xl">
-        <div className="flex justify-between items-center">
-          <div>
-            <h2 className="text-2xl font-bold mb-2">Solicita Información</h2>
-            <p className="text-white/90">
-              Completa el formulario y nos pondremos en contacto contigo
-            </p>
-          </div>
-          <button
-            onClick={onClose}
-            className="text-white/80 hover:text-white p-2 rounded-full hover:bg-white/20 transition-colors duration-200"
-            aria-label="Cerrar modal"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <form onSubmit={handleSubmit} className="p-6 space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Nombre Completo *
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a20519] focus:border-transparent transition-all duration-200"
-              placeholder="Tu nombre completo"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Correo Electrónico *
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a20519] focus:border-transparent transition-all duration-200"
-              placeholder="tu@email.com"
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="phone"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Teléfono
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a20519] focus:border-transparent transition-all duration-200"
-              placeholder="+51 999 999 999"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="diplomado"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Diplomado de Interés
-            </label>
-            <select
-              id="diplomado"
-              name="diplomado"
-              value={formData.diplomado}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a20519] focus:border-transparent transition-all duration-200"
-            >
-              <option value="">Selecciona un diplomado</option>
-              <option value="urgencias-medicas">Urgencias Médicas</option>
-              <option value="medicina-interna">Medicina Interna</option>
-              <option value="cardiologia">Cardiología</option>
-              <option value="pediatria">Pediatría</option>
-              <option value="gestion-hospitalaria">Gestión Hospitalaria</option>
-              <option value="salud-publica">Salud Pública</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Mensaje Adicional
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows={4}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a20519] focus:border-transparent transition-all duration-200 resize-none"
-            placeholder="Cuéntanos más sobre tus intereses..."
-          />
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          <button
-            type="submit"
-            className="flex-1 bg-[#a20519] text-white px-6 py-3 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200"
-          >
-            Enviar Solicitud
-          </button>
-          <button
-            type="button"
-            onClick={onClose}
-            className="flex-1 sm:flex-none bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors duration-200"
-          >
-            Cancelar
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
+import FormRequest from "./form-request";
+import { Modal } from "@/app/components/common/Modal";
 
 export default function DiplomadosSection() {
   const [showModal, setShowModal] = useState(false);
@@ -499,9 +281,9 @@ export default function DiplomadosSection() {
               Nuestros asesores académicos están listos para ayudarte a elegir
               el diplomado perfecto para tus objetivos profesionales.
             </p>
-            <motion.a
-              // onClick={() => setShowModal(true)}
-              href="https://wa.link/4ljecz"
+            <motion.button
+              onClick={() => setShowModal(true)}
+              // href="https://wa.link/4ljecz"
               className="w-full max-w-xs mx-auto bg-white text-[#a20519] px-6 py-3 rounded-full font-bold text-base sm:text-lg text-center hover:bg-gray-100 transition-all duration-300 shadow-lg"
               whileHover={{
                 scale: 1.05,
@@ -511,14 +293,14 @@ export default function DiplomadosSection() {
               aria-label="Solicitar más información sobre diplomados"
             >
               Solicita Más Información
-            </motion.a>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
 
       {/* Modal */}
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <LeadForm onClose={() => setShowModal(false)} />
+        <FormRequest />
       </Modal>
     </section>
   );

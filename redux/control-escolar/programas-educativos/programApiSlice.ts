@@ -1,10 +1,10 @@
 import { apiSlice } from "../../services/apiSlice";
-import { ProgramaEducativoCatalogResponse } from "./types";
+import { Catalog } from "@/redux/interface/request/type";
 
 const programApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getCatalogoPrograma: builder.query<ProgramaEducativoCatalogResponse, void>({
-      query: () => "/control-escolar/programas-educativos/",
+    getCatalogoPrograma: builder.query<Catalog[], void>({
+      query: () => "/control-escolar/cat/programas/",
     }),
   }),
 });

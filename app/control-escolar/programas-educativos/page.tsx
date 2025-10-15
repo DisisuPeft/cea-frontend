@@ -1,4 +1,4 @@
-import ProgramCatalog from "@/app/ui/control-escolar/programas/program-catalogs";
+// import ProgramCatalog from "@/app/ui/control-escolar/programas/program-catalogs";
 import StaticsPrograms from "@/app/ui/control-escolar/programas/statics-programs";
 import { Plus, BookOpen } from "lucide-react";
 import Link from "next/link";
@@ -38,7 +38,7 @@ export default function Page() {
           </div>
         </div>
         <StaticsPrograms />
-        <ProgramCatalog />
+        {/* <ProgramCatalog /> */}
       </div>
     </div>
   );
