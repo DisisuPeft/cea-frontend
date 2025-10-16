@@ -162,13 +162,14 @@ export default function ContactSection() {
                   </h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed">
-                  7ª sur oriente #163
+                  {/* Coronel Virgilio Culebro MZ31 No.2, Los Manguitos, 29010 Tuxtla Gutiérrez, Chis. */}
+                  Coronel Virgilio Culebro MZ31 No.2
                   <br />
-                  Col. Terán
+                  Los Manguitos
                   <br />
                   Tuxtla Gutiérrez, Chiapas
                   <br />
-                  C.P. 29050
+                  C.P. 29010
                 </p>
               </motion.div>
 
@@ -449,10 +450,10 @@ export default function ContactSection() {
               </div>
             </div>
           </div>
-
+          {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955.0300837048691!2d-93.09986473038751!3d16.770687683065038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd89f8c082e21%3A0x3afb482ece069c78!2sCoronel%20Virgilio%20Culebro%20MZ31%20No.2%2C%20Los%20Manguitos%2C%2029010%20Tuxtla%20Guti%C3%A9rrez%2C%20Chis.!5e0!3m2!1ses!2smx!4v1760573288918!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
           <div className="relative h-96">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238.7873493289777!2d-93.16473679592507!3d16.74691876054303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd90a903c47a3%3A0x976daaf856466fa5!2sUNSZA%20Universidad%20Nacional%20Salvador%20Zubir%C3%A1n%20Anchondo!5e0!3m2!1ses!2smx!4v1749589025138!5m2!1ses!2smx"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d955.0300837048691!2d-93.09986473038751!3d16.770687683065038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd89f8c082e21%3A0x3afb482ece069c78!2sCoronel%20Virgilio%20Culebro%20MZ31%20No.2%2C%20Los%20Manguitos%2C%2029010%20Tuxtla%20Guti%C3%A9rrez%2C%20Chis.!5e0!3m2!1ses!2smx!4v1760573288918!5m2!1ses!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
