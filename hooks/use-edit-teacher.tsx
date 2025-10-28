@@ -1,12 +1,9 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 
-import { Toast } from "@/alerts/toast";
-import { useEditUsersMutation } from "@/redux/sistema/SistemaApiSlice";
-import { useGetUserEditQuery } from "@/redux/sistema/SistemaApiSlice";
+// import { Toast } from "@/alerts/toast";
 import { useEffect } from "react";
-import { useCreateStudentMutation } from "@/redux/estudiante/studentApiSlice";
 import { useRetrieveMunicipiosQuery } from "@/redux/catalogos/CatApiSlice";
-import { Alert } from "@/alerts/toast";
+// import { Alert } from "@/alerts/toast";
 import { useRetrieveEditTeacherQuery } from "@/redux/maestro/teacherApiSlice";
 import { useUpdateTeacherMutation } from "@/redux/maestro/teacherApiSlice";
 
@@ -153,18 +150,18 @@ export default function useEditTeacher(id: number) {
       .unwrap()
       .then((res) => {
         console.log(res);
-        Alert({ title: "Exito", text: res, icon: "success" });
+        // Alert({ title: "Exito", text: res, icon: "success" });
       })
       .catch((error) => {
         // console.log(error);
-        Alert({
-          title: "Alerta",
-          text:
-            error?.data || error?.data
-              ? "Error al hacer la peticion al servidor"
-              : "Error, sin respuesta del servidor",
-          icon: "error",
-        });
+        // Alert({
+        //   title: "Alerta",
+        //   text:
+        //     error?.data || error?.data
+        //       ? "Error al hacer la peticion al servidor"
+        //       : "Error, sin respuesta del servidor",
+        //   icon: "error",
+        // });
       });
   };
 

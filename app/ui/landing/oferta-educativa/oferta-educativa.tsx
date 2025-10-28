@@ -12,7 +12,7 @@ import {
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import CallToSuscribe from "../ready-to";
-
+import { Variants } from "framer-motion";
 // Custom hook for animation on scroll
 const useInView = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -201,7 +201,7 @@ export default function EducationalOfferingsSection() {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -212,7 +212,7 @@ export default function EducationalOfferingsSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -224,7 +224,7 @@ export default function EducationalOfferingsSection() {
     },
   };
 
-  const headerVariants = {
+  const headerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

@@ -15,6 +15,7 @@ import {
   Calendar,
   MapPin,
 } from "lucide-react";
+import { Variants } from "framer-motion";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -54,7 +55,7 @@ export default function AboutSection() {
   //   { number: "95%", label: "Satisfacción estudiantil" },
   // ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -65,7 +66,7 @@ export default function AboutSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -77,7 +78,7 @@ export default function AboutSection() {
     },
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { opacity: 0, scale: 1.1 },
     visible: {
       opacity: 1,

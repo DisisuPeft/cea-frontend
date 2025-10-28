@@ -1,12 +1,12 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 
-import { Toast } from "@/alerts/toast";
-import { useEditUsersMutation } from "@/redux/sistema/SistemaApiSlice";
-import { useGetUserEditQuery } from "@/redux/sistema/SistemaApiSlice";
-import { useEffect } from "react";
+// import { Toast } from "@/alerts/toast";
+// import { useEditUsersMutation } from "@/redux/sistema/SistemaApiSlice";
+// import { useGetUserEditQuery } from "@/redux/sistema/SistemaApiSlice";
+// import { useEffect } from "react";
 import { useCreateTeacherMutation } from "@/redux/maestro/teacherApiSlice";
 import { useRetrieveMunicipiosQuery } from "@/redux/catalogos/CatApiSlice";
-import { Alert } from "@/alerts/toast";
+// import { Alert } from "@/alerts/toast";
 
 export default function useCreateTeacher() {
   // const [entidad_id, setEntidad] = useState<number>()
@@ -138,17 +138,17 @@ export default function useCreateTeacher() {
       .then((res) => {
         //     console.log(res);
         reset();
-        Alert({ title: "Exito", text: res, icon: "success" });
+        // Alert({ title: "Exito", text: res, icon: "success" });
       })
       .catch((error) => {
         // console.log(error);
-        Alert({
-          title: "Alerta",
-          text: error?.data
-            ? "Uno o mas campos estan vacios"
-            : "Error, sin respuesta del servidor",
-          icon: "error",
-        });
+        // Alert({
+        //   title: "Alerta",
+        //   text: error?.data
+        //     ? "Uno o mas campos estan vacios"
+        //     : "Error, sin respuesta del servidor",
+        //   icon: "error",
+        // });
       });
   };
 

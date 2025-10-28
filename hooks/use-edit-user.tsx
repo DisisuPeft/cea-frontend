@@ -2,12 +2,11 @@ import { useState, ChangeEvent, FormEvent } from "react";
 
 // // import { useRouter } from "next/navigation";
 // // import { useAppDispatch } from "@/app/redux/hooks";
-import { Toast, Alert } from "@/alerts/toast";
+// import { Toast, Alert } from "@/alerts/toast";
 // // import { useRouteTestMutation } from "@/app/redux/task/taskapiSlice";
 import { useEditUsersMutation } from "@/redux/sistema/SistemaApiSlice";
 import { useGetUserEditQuery } from "@/redux/sistema/SistemaApiSlice";
 import { useEffect } from "react";
-import { User } from "@/redux/features/types";
 import {
   useGetRolesQuery,
   useGetPermissionQuery,

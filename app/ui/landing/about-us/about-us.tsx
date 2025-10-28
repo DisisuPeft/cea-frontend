@@ -4,7 +4,7 @@ import { Target, Eye, Award, BookOpen, Users, Heart } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-
+import { Variants } from "framer-motion";
 // Custom hook for animation on scroll
 const useInView = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,7 +44,7 @@ export default function AboutUsSection() {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -55,7 +55,7 @@ export default function AboutUsSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,

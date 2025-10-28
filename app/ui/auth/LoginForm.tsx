@@ -1,16 +1,19 @@
-'use client'
-import { Button } from '@/app/ui/Button';
-import Link from 'next/link';
-import { useLogin } from '@/hooks';
+"use client";
+import { Button } from "@/app/ui/Button";
+import Link from "next/link";
+import { useLogin } from "@/hooks";
 // import Loading from '@/app/components/common/Loading';
 
 export default function LoginForm() {
-  const {email, password, isLoading, onChange, onSubmit} = useLogin()
+  const { email, password, onChange, onSubmit } = useLogin();
   return (
     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
       <form className="space-y-6" onSubmit={onSubmit}>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
             Correo electrónico
           </label>
           <div className="mt-1">
@@ -28,7 +31,10 @@ export default function LoginForm() {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-700"
+          >
             Contraseña
           </label>
           <div className="mt-1">
@@ -53,7 +59,10 @@ export default function LoginForm() {
               type="checkbox"
               className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
             />
-            <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+            <label
+              htmlFor="remember-me"
+              className="ml-2 block text-sm text-gray-900"
+            >
               Recuérdame
             </label>
           </div>
@@ -65,14 +74,14 @@ export default function LoginForm() {
           </div>
         </div>
         <div className="text-sm">
-            <Link href="/auth/register" className="font-medium text-[#121829]">
-              Registrarse
-            </Link>
-          </div>
+          <Link href="/auth/register" className="font-medium text-[#121829]">
+            Registrarse
+          </Link>
+        </div>
         <div>
           <Button
             type="submit"
-            disabled={isLoading}
+            disabled={true}
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#121829] hover:bg-[#121829] focus:outline-none focus:ring-2 focus:ring-offset-2"
           >
             Iniciar sesión
@@ -90,7 +99,7 @@ export default function LoginForm() {
           </div>
         </div> */}
 
-        {/* <div className="mt-6 grid grid-cols-2 gap-3">
+      {/* <div className="mt-6 grid grid-cols-2 gap-3">
           <div>
             <Button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
               <span className="sr-only">Iniciar sesión con Google</span>
@@ -107,5 +116,5 @@ export default function LoginForm() {
         </div> */}
       {/* </div> */}
     </div>
-  )
+  );
 }

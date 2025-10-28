@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Clock, Award, ArrowRight, BookOpen } from "lucide-react";
 import FormRequest from "./form-request";
 import { Modal } from "@/app/components/common/Modal";
+import { Variants } from "framer-motion";
 
 export default function DiplomadosSection() {
   const [showModal, setShowModal] = useState(false);
@@ -90,7 +91,7 @@ export default function DiplomadosSection() {
     // },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -101,7 +102,7 @@ export default function DiplomadosSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 50,

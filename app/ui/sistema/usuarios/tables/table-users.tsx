@@ -6,7 +6,7 @@ import { Delete } from "lucide-react";
 import UsersDialog from "../UsersDialog";
 // import { Modal } from "@/app/components/common/Modal";
 import EditUser from "../forms/EditUser";
-import { Alert } from "@/alerts/toast";
+// import { Alert } from "@/alerts/toast";
 // import Swal from "sweetalert2";
 import {
   useReactTable,
@@ -29,7 +29,7 @@ export default function TableUsers() {
   };
   const handleCloseForm = (event: boolean) => {
     refetch();
-    Alert({ title: "Exito", text: "El usuario se edito!", icon: "success" });
+    // Alert({ title: "Exito", text: "El usuario se edito!", icon: "success" });
     setOpen(event);
   };
   // const handleChangePage = (event: unknown, newPage: number) => {

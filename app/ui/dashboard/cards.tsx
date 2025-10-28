@@ -13,7 +13,7 @@ import type React from "react";
 // import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Alert } from "@/alerts/toast";
+// import { Alert } from "@/alerts/toast";
 import { serializeError } from "@/redux/features/serializer";
 import { DynamicIcon } from "../icons/dynamic-icon";
 // const iconMap = {
@@ -81,14 +81,14 @@ export default function Modulos() {
   const message = serializeError(error);
   useEffect(() => {
     if (error != undefined) {
-      Alert({
-        title: "Alerta",
-        text: message,
-        icon: "error",
-        closeB: true,
-        onCloseOut: true,
-        onEscapeOut: true,
-      });
+      // Alert({
+      //   title: "Alerta",
+      //   text: message,
+      //   icon: "error",
+      //   closeB: true,
+      //   onCloseOut: true,
+      //   onEscapeOut: true,
+      // });
       // refetch()
     }
     // refetch()

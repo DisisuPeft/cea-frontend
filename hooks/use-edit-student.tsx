@@ -1,18 +1,18 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 
-import { Toast } from "@/alerts/toast";
+// import { Toast } from "@/alerts/toast";
 import { useEditUsersMutation } from "@/redux/sistema/SistemaApiSlice";
 import { useGetUserEditQuery } from "@/redux/sistema/SistemaApiSlice";
 import { useEffect } from "react";
 import { useCreateStudentMutation } from "@/redux/estudiante/studentApiSlice";
 import { useRetrieveMunicipiosQuery } from "@/redux/catalogos/CatApiSlice";
-import { Alert } from "@/alerts/toast";
+// import { Alert } from "@/alerts/toast";
 import { useRetrieveEditStudentQuery } from "@/redux/estudiante/studentApiSlice";
 import { useUpdateStudentMutation } from "@/redux/estudiante/studentApiSlice";
 
 export default function useEditStudent(id: number) {
   // const [entidad_id, setEntidad] = useState<number>()
-  const [updateStudent, { isLoading }] = useUpdateStudentMutation();
+  // const [updateStudent, { isLoading }] = useUpdateStudentMutation();
   const { data: estudiante } = useRetrieveEditStudentQuery(id);
   const [formData, setFormData] = useState({
     curp: "",
@@ -140,28 +140,28 @@ export default function useEditStudent(id: number) {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(formData);
-    updateStudent(formData)
-      .unwrap()
-      .then((res) => {
-        console.log(res);
-        Alert({ title: "Exito", text: res, icon: "success" });
-      })
-      .catch((error) => {
-        // console.log(error)
-        Alert({
-          title: "Alerta",
-          text:
-            error?.data?.name[0] || error?.data?.description[0]
-              ? "Uno o mas campos estan vacios"
-              : "Error, sin respuesta del servidor",
-          icon: "error",
-        });
-      });
+    // updateStudent(formData)
+    //   .unwrap()
+    //   .then((res) => {
+    //     console.log(res);
+    //     Alert({ title: "Exito", text: res, icon: "success" });
+    //   })
+    //   .catch((error) => {
+    //     // console.log(error)
+    //     Alert({
+    //       title: "Alerta",
+    //       text:
+    //         error?.data?.name[0] || error?.data?.description[0]
+    //           ? "Uno o mas campos estan vacios"
+    //           : "Error, sin respuesta del servidor",
+    //       icon: "error",
+    //     });
+    //   });
   };
 
   return {
     formData,
-    isLoading,
+    // isLoading,
     onChange,
     onSubmit,
     reset,

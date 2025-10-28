@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-
+import { Variants } from "framer-motion";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -36,7 +36,7 @@ export default function ContactSection() {
   // );
   // const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -47,7 +47,7 @@ export default function ContactSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -59,7 +59,7 @@ export default function ContactSection() {
     },
   };
 
-  const headerVariants = {
+  const headerVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
