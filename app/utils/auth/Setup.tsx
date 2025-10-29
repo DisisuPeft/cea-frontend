@@ -10,7 +10,7 @@ export default function Setup() {
   const { isLoading } = useAppSelector((state) => state.auth);
   // console.log(isLoading)
   return (
-    <Modal show={isLoading} onClose={() => isLoading} transparent={true}>
+    <Modal show={false} onClose={() => isLoading} transparent={true}>
       {/* <div className="p-[50px]"> */}
       <Loading />
       {/* </div> */}
