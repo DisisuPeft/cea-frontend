@@ -18,7 +18,7 @@ export default function AboutUsSection() {
 
   const strengths = [
     {
-      title: "Formación reconocida por RVOE",
+      title: "RVOE ante SEP",
       description:
         "Estudia con validez oficial en diplomados creados por profesionales del sector salud",
       color: "#121b6a",

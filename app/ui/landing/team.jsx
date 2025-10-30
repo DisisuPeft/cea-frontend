@@ -23,7 +23,7 @@ export default function TeamSection() {
       name: "Dr. Carlos López",
       role: "Director Administrativo",
       department: "Administración",
-      image: "/assets/fotos-team/carlos_unsza.webp",
+      image: "/assets/fotos-team/Carlos-Arturo-Lopéz-Camacho.webp",
       email: "carlos.lopez@unsza.edu.pe",
       phone: "+51 999 123 456",
       specialization: "Gestión Educativa",
@@ -39,7 +39,7 @@ export default function TeamSection() {
       name: "Dr. Ricardo Hernández",
       role: "Director Operativo",
       department: "Administración",
-      image: "/assets/fotos-team/ricardo.webp",
+      image: "/assets/fotos-team/Ricardo-Hernández-Hernández.webp",
       email: "laura.molina@unsza.edu.pe",
       phone: "+51 999 123 457",
       specialization: "Pedagogía Digital",
@@ -55,7 +55,7 @@ export default function TeamSection() {
       name: "Lic. Leonardo Abadia",
       role: "Director comercial",
       department: "Ventas",
-      image: "/assets/fotos-team/abadia_unsza.webp",
+      image: "/assets/fotos-team/Leonardo-Abadia.webp",
       email: "andrea.brindis@unsza.edu.pe",
       phone: "+51 999 123 459",
       specialization: "Psicología Educativa",
@@ -71,7 +71,7 @@ export default function TeamSection() {
       name: "Lic. Amayrani López",
       role: "Asesora Educativa",
       department: "Asesoría Académica",
-      image: "/assets/fotos-team/ejecutivo_unsza.webp",
+      image: "/assets/fotos-team/Keyla-Lopez-Alvarez.webp",
       email: "amayrani.lopez@unsza.edu.pe",
       phone: "+51 999 123 458",
       specialization: "Orientación Estudiantil",
@@ -87,7 +87,7 @@ export default function TeamSection() {
       name: "Lic. Carlos Cruz Arroyo",
       role: "Diseño",
       department: "Marketing y Diseño",
-      image: "/assets/fotos-team/ejecutivo_2.webp",
+      image: "/assets/fotos-team/Jose-Antonio-Gomez-Gonzalez.webp",
       email: "grecia.palacios@unsza.edu.pe",
       phone: "+51 999 123 460",
       specialization: "Desarrollo Curricular",
@@ -103,7 +103,23 @@ export default function TeamSection() {
       name: "Lic. Sofia Muñoz",
       role: "Líder de Marketing",
       department: "Marketing y Diseño",
-      image: "/assets/fotos-team/marketing.webp",
+      image: "/assets/fotos-team/Yuri-López.webp",
+      email: "miguel.hernandez@unsza.edu.pe",
+      phone: "+51 999 123 461",
+      specialization: "Investigación Educativa",
+      experience: "18+ años",
+      social: {
+        linkedin: "#",
+        twitter: "#",
+        facebook: "#",
+      },
+    },
+    {
+      id: 7,
+      name: "Lic. Sofia Muñoz",
+      role: "Líder de Marketing",
+      department: "Marketing y Diseño",
+      image: "/assets/fotos-team/Guillermo-Tejeda-Palacios.webp",
       email: "miguel.hernandez@unsza.edu.pe",
       phone: "+51 999 123 461",
       specialization: "Investigación Educativa",
@@ -157,7 +173,7 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-gray-50">
+    <section className="py-16 md:py-20 lg:py-24 bg-gray-50 md:p-[100px]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -226,7 +242,7 @@ export default function TeamSection() {
                       src={member.image || "/placeholder.svg"}
                       alt={`${member.name} - ${member.role}`}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 group-hover:scale-100"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -272,19 +288,19 @@ export default function TeamSection() {
                 </div>
 
                 {/* Member Info */}
-                <div className="p-6">
-                  <div className="text-center mb-4">
-                    <h3 className="font-bold text-lg text-[#121829] mb-1 group-hover:text-[#a20519] transition-colors duration-300">
+                {/* <div className="p-6"> */}
+                {/* <div className="text-center mb-4"> */}
+                {/* <h3 className="font-bold text-lg text-[#121829] mb-1 group-hover:text-[#a20519] transition-colors duration-300">
                       {member.name}
                     </h3>
                     <p className="text-[#a20519] font-semibold text-sm mb-1">
                       {member.role}
-                    </p>
-                    <p className="text-gray-500 text-xs">{member.department}</p>
-                  </div>
+                    </p> */}
+                {/* <p className="text-gray-500 text-xs">{member.department}</p> */}
+                {/* </div> */}
 
-                  {/* Specialization */}
-                  {/* <div className="flex items-center justify-center mb-4">
+                {/* Specialization */}
+                {/* <div className="flex items-center justify-center mb-4">
                     <div className="bg-gray-100 rounded-full px-3 py-1 flex items-center">
                       <BookOpen className="w-3 h-3 mr-1 text-[#121b6a]" />
                       <span className="text-xs text-gray-600">
@@ -293,8 +309,8 @@ export default function TeamSection() {
                     </div>
                   </div> */}
 
-                  {/* Contact Info */}
-                  {/* <div className="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                {/* Contact Info */}
+                {/* <div className="space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="flex items-center text-xs text-gray-500">
                       <Mail className="w-3 h-3 mr-2 text-[#121b6a]" />
                       <span className="truncate">{member.email}</span>
@@ -304,7 +320,7 @@ export default function TeamSection() {
                       <span>{member.phone}</span>
                     </div>
                   </div> */}
-                </div>
+                {/* </div> */}
               </div>
             </motion.div>
           ))}

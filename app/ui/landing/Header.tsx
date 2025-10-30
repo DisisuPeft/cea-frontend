@@ -1,20 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { useState } from "react";
+import { motion } from "framer-motion";
+// import Image from "next/image";
+import Link from "next/link";
+import { X, Menu } from "lucide-react";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 50);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
+  const [open, setOpen] = useState(false);
 
   const navItems = [
     { name: "Inicio", href: "/" },
@@ -25,159 +29,95 @@ export default function Header() {
   ];
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-white/95 backdrop-blur-sm"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+    <>
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <motion.div
-            className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-2 sm:gap-3 shrink-0"
           >
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <Image
-                src="/assets/logos/unsza_logo.webp"
-                alt="Sobre nosotros"
-                className="object-cover rounded-lg p-1"
-                width={50}
-                height={50}
-              />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-primary text-black">
-                UNSZA
-              </h1>
-              <p className="text-xs text-gray-600 hidden sm:block">
-                Universidad Nacional Salvador Zubirán Anchondo
-              </p>
-            </div>
+            <Link
+              href={`/`}
+              aria-label="Ir al inicio"
+              className="inline-flex items-center"
+            >
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-sm flex items-center justify-center ml-6 md:ml-12 mb-2">
+                <div className="font-bold text-3xl sm:text-4xl leading-none cursor-pointer whitespace-nowrap select-none">
+                  <span className="text-primary">U</span>
+                  <span className="text-[#121b6a]">NSZ</span>
+                  <span className="text-primary">A</span>
+                </div>
+              </div>
+            </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item, index) => (
+          {/* Botón móvil */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setOpen(!open)}
+              className="text-[#121b6a] focus:outline-none"
+            >
+              {open ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+
+          {/* Links desktop */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-                whileHover={{ y: -2 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="text-[#121b6a] text-sm font-semibold tracking-wide hover:text-red-600 transition-colors"
               >
                 {item.name}
               </motion.a>
             ))}
-          </nav>
 
-          {/* CTA Button */}
-          <motion.a
-            href="https://wa.link/8co4g1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-all duration-200 hover:shadow-lg"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 10px 25px rgba(162, 5, 25, 0.3)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <Image
-              src="/assets/logos/icons8-whatsapp.svg"
-              alt="WhatsApp"
-              width={20}
-              height={20}
-              className="object-contain"
-            />
-            Habla con un asesor
-          </motion.a>
+            <div className="w-px h-8 bg-gray-300" />
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-label="Abrir menú de navegación"
-          >
-            <motion.div
-              animate={isMobileMenuOpen ? "open" : "closed"}
-              className="w-6 h-6 flex flex-col justify-center items-center"
+            {/* Botón Iniciar sesión */}
+            <Link
+              href="https://app.unsza.com/auth/login"
+              className="px-5 py-2 bg-[#121b6a] text-white rounded-full text-sm font-semibold hover:bg-[#0d1450] transition"
             >
-              <motion.span
-                className="w-6 h-0.5 bg-current block"
-                variants={{
-                  closed: { rotate: 0, y: 0 },
-                  open: { rotate: 45, y: 2 },
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="w-6 h-0.5 bg-current block mt-1"
-                variants={{
-                  closed: { opacity: 1 },
-                  open: { opacity: 0 },
-                }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.span
-                className="w-6 h-0.5 bg-current block mt-1"
-                variants={{
-                  closed: { rotate: 0, y: 0 },
-                  open: { rotate: -45, y: -2 },
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-          </button>
+              Iniciar sesión
+            </Link>
+          </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
+        {/* Menu móvil desplegable */}
+        {open && (
           <motion.div
-            className="lg:hidden bg-white border-t border-gray-200"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden bg-white border-t border-gray-200 shadow-lg"
           >
-            <div className="px-4 py-4 space-y-4">
-              {navItems.map((item, index) => (
-                <motion.a
+            <div className="flex flex-col items-center gap-4 py-4">
+              {navItems.map((item) => (
+                <a
                   key={item.name}
                   href={item.href}
-                  className="block text-gray-700 hover:text-primary transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  onClick={() => setOpen(false)}
+                  className="text-[#121b6a] text-base font-medium hover:text-red-600 transition-colors"
                 >
                   {item.name}
-                </motion.a>
+                </a>
               ))}
-              <motion.a
-                href="https://wa.link/8co4g1"
-                className="w-full bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200 mt-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+              <Link
+                href="https://app.unsza.com/auth/login"
+                className="mt-2 px-5 py-2 bg-[#121b6a] text-white rounded-full text-sm font-semibold hover:bg-[#0d1450] transition"
+                onClick={() => setOpen(false)}
               >
-                Solicita Información
-              </motion.a>
+                Iniciar sesión
+              </Link>
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
-    </motion.header>
+      </nav>
+    </>
   );
 }

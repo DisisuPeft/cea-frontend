@@ -7,6 +7,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --unsza-red: #9b1c31;
+  --unsza-navy: #0d1b48;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -63,4 +65,196 @@ body {
 
 .animation-delay-600 {
   animation-delay: 0.6s;
+}
+
+.unsza-wave {
+  position: relative;
+  width: 120%;
+  left: -10%;
+  background: linear-gradient(
+    90deg,
+    var(--unsza-red) 0%,
+    var(--unsza-navy) 100%
+  );
+  filter: saturate(105%);
+  will-change: clip-path, transform;
+}
+
+/* OLA 1 – movimiento amplio y lento */
+.unsza-wave-1 {
+  animation: unszaWaveA 14s ease-in-out infinite;
+  clip-path: polygon(
+    0% 70%,
+    8% 66%,
+    16% 68%,
+    24% 64%,
+    32% 67%,
+    40% 63%,
+    48% 66%,
+    56% 62%,
+    64% 65%,
+    72% 61%,
+    80% 64%,
+    88% 60%,
+    96% 63%,
+    100% 61%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+/* OLA 2 – más rápida y con distinta forma para dar profundidad */
+.unsza-wave-2 {
+  mix-blend-mode: soft-light; /* o "overlay" si quieres más punch */
+  animation: unszaWaveB 10s ease-in-out infinite reverse;
+  clip-path: polygon(
+    0% 65%,
+    8% 68%,
+    16% 64%,
+    24% 67%,
+    32% 63%,
+    40% 66%,
+    48% 62%,
+    56% 65%,
+    64% 61%,
+    72% 64%,
+    80% 60%,
+    88% 63%,
+    96% 59%,
+    100% 62%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+@keyframes unszaWaveA {
+  0% {
+    transform: translateX(0);
+    clip-path: polygon(
+      0% 70%,
+      8% 66%,
+      16% 68%,
+      24% 64%,
+      32% 67%,
+      40% 63%,
+      48% 66%,
+      56% 62%,
+      64% 65%,
+      72% 61%,
+      80% 64%,
+      88% 60%,
+      96% 63%,
+      100% 61%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    transform: translateX(-2%);
+    clip-path: polygon(
+      0% 68%,
+      8% 64%,
+      16% 67%,
+      24% 63%,
+      32% 66%,
+      40% 62%,
+      48% 65%,
+      56% 61%,
+      64% 64%,
+      72% 60%,
+      80% 63%,
+      88% 59%,
+      96% 62%,
+      100% 60%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  100% {
+    transform: translateX(0);
+    clip-path: polygon(
+      0% 70%,
+      8% 66%,
+      16% 68%,
+      24% 64%,
+      32% 67%,
+      40% 63%,
+      48% 66%,
+      56% 62%,
+      64% 65%,
+      72% 61%,
+      80% 64%,
+      88% 60%,
+      96% 63%,
+      100% 61%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+@keyframes unszaWaveB {
+  0% {
+    transform: translateX(0);
+    clip-path: polygon(
+      0% 65%,
+      8% 68%,
+      16% 64%,
+      24% 67%,
+      32% 63%,
+      40% 66%,
+      48% 62%,
+      56% 65%,
+      64% 61%,
+      72% 64%,
+      80% 60%,
+      88% 63%,
+      96% 59%,
+      100% 62%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    transform: translateX(2%);
+    clip-path: polygon(
+      0% 66%,
+      8% 69%,
+      16% 65%,
+      24% 68%,
+      32% 64%,
+      40% 67%,
+      48% 63%,
+      56% 66%,
+      64% 62%,
+      72% 65%,
+      80% 61%,
+      88% 64%,
+      96% 60%,
+      100% 63%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  100% {
+    transform: translateX(0);
+    clip-path: polygon(
+      0% 65%,
+      8% 68%,
+      16% 64%,
+      24% 67%,
+      32% 63%,
+      40% 66%,
+      48% 62%,
+      56% 65%,
+      64% 61%,
+      72% 64%,
+      80% 60%,
+      88% 63%,
+      96% 59%,
+      100% 62%,
+      100% 100%,
+      0% 100%
+    );
+  }
 }

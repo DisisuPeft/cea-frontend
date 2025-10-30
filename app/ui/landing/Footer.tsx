@@ -72,7 +72,8 @@ export default function FooterSection() {
             <div className="space-y-3">
               <p className="mb-2 flex items-center text-sm">
                 <MapPin className="mr-3 h-4 w-4 flex-shrink-0" />
-                7ª sur oriente #163 Col. Terán, Tuxtla Gutiérrez, Chiapas.
+                Coronel Virgilio Culebro MZ31 No.2, Los Manguitos, 29010 Tuxtla
+                Gutiérrez, Chis.
               </p>
               {/* <p className="mb-2 flex items-center text-sm"> */}
               <a
