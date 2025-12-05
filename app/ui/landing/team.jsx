@@ -130,6 +130,23 @@ export default function TeamSection() {
         facebook: "#",
       },
     },
+    {
+      id: 7,
+      name: "Lic. Sofia Muñoz",
+      role: "Líder de Marketing",
+      department: "Marketing y Diseño",
+      image: "/assets/fotos-team/UNSZA-Perfil-Sofía-Muñoz-02.webp",
+      email: "miguel.hernandez@unsza.edu.pe",
+      phone: "+51 999 123 461",
+      specialization: "Investigación Educativa",
+      experience: "18+ años",
+      social: {
+        linkedin: "#",
+        twitter: "#",
+        facebook: "#",
+      },
+    },
+    // UNSZA-Perfil-Sofía-Muñoz-02
   ];
 
   const containerVariants = {
